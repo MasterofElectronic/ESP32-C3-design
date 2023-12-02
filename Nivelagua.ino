@@ -15,8 +15,9 @@ void loop() {
   int sensorValue = analogRead(A0);
 
   // Enviar datos por Bluetooth
-  SerialBT.print("Nivel:");
+  
   SerialBT.println(sensorValue);
+  SerialBT.print(";");
 
   delay(1000);  // Ajusta el intervalo según sea necesario
 }

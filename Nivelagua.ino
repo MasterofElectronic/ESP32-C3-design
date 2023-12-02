@@ -1,10 +1,13 @@
 #include <BluetoothSerial.h>
 
 BluetoothSerial SerialBT;
+#if !defined(CONFIG_BT_ENABLE) || !defined(CONFIG_BLUEDROID_ENABLE)
+#error Bluetooth is not enabled! Please run `make menuconfig` to and enable it
+#endif
 
 void setup() {
   Serial.begin(115200);
-  SerialBT.begin("ESP32_BT");  // Puedes cambiar "ESP32_BT" por el nombre deseado para tu dispositivo Bluetooth
+  SerialBT.begin("ESP32_BT");  
   pinMode(A0, INPUT);
 }
 
